@@ -1,1 +1,1 @@
-6-third_line
+Same file script
