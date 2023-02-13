@@ -1,1 +1,1 @@
-confused-smiley script
+Display content script
