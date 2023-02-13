@@ -1,1 +1,1 @@
-Display third file script
+6-third_line
