@@ -1,1 +1,1 @@
-Creates a file named exactly script
+Creating a file named exactly script
