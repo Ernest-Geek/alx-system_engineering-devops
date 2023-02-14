@@ -1,1 +1,1 @@
-Creat an alias script
+Hello world script
