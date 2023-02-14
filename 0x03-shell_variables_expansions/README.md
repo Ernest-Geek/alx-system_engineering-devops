@@ -1,1 +1,1 @@
-last directory script
+Count number of directories script
