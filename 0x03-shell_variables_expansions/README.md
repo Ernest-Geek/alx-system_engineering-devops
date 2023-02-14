@@ -1,0 +1,1 @@
+Creat an alias script
