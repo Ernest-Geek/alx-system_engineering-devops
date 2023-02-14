@@ -1,3 +1,2 @@
 #!/bin/bash
-TRUEKNOWLEDGE="$TRUEKNOWLEDGE"
-echo $((128 + $TRUEKNOWLEDGE))$'\n'
+echo $((128 * $TRUEKNOWLEDGE))
