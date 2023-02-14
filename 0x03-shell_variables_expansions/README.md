@@ -1,1 +1,1 @@
-Count number of directories script
+Readme file
