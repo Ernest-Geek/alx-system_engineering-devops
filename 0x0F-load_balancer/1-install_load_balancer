@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Script that installs and configures HAproxy load balancer
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+server_config=\
+"
+frontend ernestampene_frontend
+	bind *:80
+	mode http
+	default_backend ernestampene_backend
+backend ernestampene_backend
+	balance roundrobin
+	server 229769-web-01 100.25.222.245:80 check
+	server 229769-web-02 100.25.0.44:80 check
+"
+
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
