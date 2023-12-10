@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+sudo apt update
+sudo apt-get install -y net-tools
+
+if ! sudo netstat -tulpn | grep -q :80; then
+  sudo nginx -t && sudo sed -i 's/\(listen\s*[^;]*\)\(;\)/\180\2/' /etc/nginx/nginx.conf && sudo systemctl restart nginx && sudo netstat -tulpn | grep :80
+fi
+
