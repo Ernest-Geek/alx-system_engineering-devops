@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#Using your debugging skills....
 
 # Update package index and install net-tools
 sudo apt update
