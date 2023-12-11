@@ -1,23 +1,5 @@
-User
 #!/usr/bin/env bash
-#Using your debugging skills....
+# debugging nginx port 80
 
-# Update package index and install net-tools
-sudo apt update
-sudo apt-get install -y net-tools
-
-#check if nqinx is listening on port 80
-if sudo netstat -tulpn | grep -q :80; then
-    echo "Nginx is already listening on port 80."
-else
-   #check Nginx configuration for errors
-   sudo nginx -t
-
-   #Update nginx configuration to listen on port 80
-    sudo sed -i 's/\(listen\s*[^;]*\)\(;\)/\180\2/' /etc/nginx/nginx.conf
-
-    # Restart Nginx
-    sudo systemctl restart nginx
-
-    # Check if Nginx is now listening on port 80
-    sudo netstat -tulpn | grep :80
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
