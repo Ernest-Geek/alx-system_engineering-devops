@@ -1,3 +1,4 @@
+User
 #!/usr/bin/env bash
 #Using your debugging skills....
 
@@ -20,4 +21,3 @@ else
 
     # Check if Nginx is now listening on port 80
     sudo netstat -tulpn | grep :80
-fi
