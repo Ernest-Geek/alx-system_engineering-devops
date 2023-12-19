@@ -1,0 +1,4 @@
+# Port Redirection from 8080 to 80
+-A ufw-before-forward -p tcp --dport 8080 -j ACCEPT
+-A ufw-before-forward -p tcp --dport 80 -j ACCEPT
+
