@@ -3,26 +3,28 @@
 import requests
 import sys
 
+
 def get_todo_list(employee_id):
     """Retrieve TODO list for the given employee ID."""
-    api_url = "https://jsonplaceholder.typicode.com/"
-    
+    url = "https://jsonplaceholder.typicode.com/"
+
     # Retrieve user information
-    user_response = requests.get(api_url + "users/{}".format(employee_id))
+    user_response = requests.get(url + "users/{}".format(employee_id))
     if user_response.status_code != 200:
-        print("Failed to retrieve user data. Status code:", user_response.status_code)
+        print("Failed. Status code:", user_response.status_code)
         sys.exit(1)
-    
+
     user = user_response.json()
 
     # Retrieve TODO list for the given employee ID
-    todos_response = requests.get(api_url + "todos", params={"userId": employee_id})
-    if todos_response.status_code != 200:
-        print("Failed to retrieve TODO data. Status code:", todos_response.status_code)
+    t_response = requests.get(url + "todos", params={"userId": employee_id})
+    if t_response.status_code != 200:
+        print("Failed. Status code:", t_response.status_code)
         sys.exit(1)
 
-    todos = todos_response.json()
+    todos = t_response.json()
     return user, todos
+
 
 def display_todo_progress(user, todos):
     """Display TODO list progress for the given employee ID."""
@@ -34,6 +36,7 @@ def display_todo_progress(user, todos):
 
     # Display titles of completed tasks
     [print("\t {}".format(c)) for c in completed]
+
 
 if __name__ == "__main__":
     # Check if the correct number of command-line arguments is provided
