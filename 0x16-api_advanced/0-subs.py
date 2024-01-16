@@ -6,6 +6,7 @@ Get the number of subscribers for a given subreddit using the Reddit API.
 import sys
 import requests
 
+
 def number_of_subscribers(subreddit):
     # Reddit API endpoint for getting subreddit information
     api_url = f"https://www.reddit.com/r/{subreddit}/about.json"
@@ -24,8 +25,9 @@ def number_of_subscribers(subreddit):
         # Return the extracted number of subscribers
         return subscribers
     else:
-        # If an invalid subreddit is given or there is an issue with the request
+
         return 0
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -35,5 +37,4 @@ if __name__ == "__main__":
     subreddit_name = sys.argv[1]
 
     subscribers_count = number_of_subscribers(subreddit_name)
-    print(f"The subreddit {subreddit_name} has {subscribers_count} subscribers.")
-
+    print(f"The subreddit {subreddit_name} has {subscribers_count} subs.")
